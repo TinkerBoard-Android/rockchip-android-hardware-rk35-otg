@@ -5,6 +5,8 @@ service vendor.usb /vendor/bin/hw/android.hardware.usb-service.rockchip_otg
     capabilities WAKE_ALARM BLOCK_SUSPEND
 
 on post-fs
+    chown root system /sys/class/usb2phy/otg_phy/usb_data_enabled
+    chmod 664 /sys/class/usb2phy/otg_phy/usb_data_enabled
     chown root system /sys/class/typec/port0/power_role
     chown root system /sys/class/typec/port0/data_role
     chown root system /sys/class/typec/port0/port_type
